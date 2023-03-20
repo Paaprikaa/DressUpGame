@@ -4,7 +4,7 @@ import Animal from './Components/Animal/Animal';
 import Arrows from './Components/Arrows/Arrows';
 import CharacterView from './Components/CharacterView/CharacterView';
 import Palette from './Components/Palette/Palette';
-import { BACKGROUND_PURPLE } from './utils/constants';
+import { BACKGROUND_COLOUR } from './utils/constants';
 
 export default function App() {
   return (
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: BACKGROUND_PURPLE,
+    backgroundColor: BACKGROUND_COLOUR,
     alignItems: 'center',
     justifyContent: 'center',
     gap: '10px',

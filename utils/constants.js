@@ -1,8 +1,7 @@
 // COLORS
-export const PRIMARY_PURPLE = "#6E499D";
-export const SECONDARY_PURPLE = "#482672";
-export const BACKGROUND_PURPLE = "#5A598C";
-export const PINK = "#DFAAD3";
-export const YELLOW = "#FEF0BE";
-export const LIGHT_BLUE = "#9BE4D3";
-export const GREEN = "#C5EF8E";
+export const BACKGROUND = "#F6EFF8";
+export const PURPLE = "#A15A92";
+export const LILAC_1 = "#EAD2EF";
+export const LILAC_2 = "#DAB1E3";
+export const LILAC_3 = "#CD96D9";
+export const LILAC_4 = "#C687D4";

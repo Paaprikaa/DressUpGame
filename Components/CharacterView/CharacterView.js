@@ -1,5 +1,5 @@
 import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
-import { GREEN, LIGHT_BLUE, PINK, YELLOW } from "../../utils/constants";
+import { LILAC_2, LILAC_4, LILAC_3, LILAC_1 } from "../../utils/constants";
 
 export default function CharacterView() {
     return(
@@ -37,7 +37,7 @@ const CharacterViewStyle = StyleSheet.create({
   },
   characterDisplay: {
     display: 'flex',
-    backgroundColor: YELLOW,
+    backgroundColor: LILAC_1,
     width:'330px',
     height:'480px',
     borderRadius:'10px'
@@ -47,30 +47,35 @@ const CharacterViewStyle = StyleSheet.create({
     flexDirection: 'row',
     gap:'0px',
     width:'330px',
-    height:'50px',
+    height:'60px',
+    marginBottom: '-10px'
   },
   top: {
     display: 'block',
     width:'82.5px',
-    height:'50px',
-    backgroundColor: YELLOW,
+    height:'60px',
+    borderRadius:'5px',
+    backgroundColor: LILAC_1,
   },
   bottom: {
     display: 'block',
     width:'82.5px',
-    height:'50px',
-    backgroundColor: GREEN,
-  },
-  shoes: {
-    display: 'block',
-    width:'82.5px',
-    height:'50px',
-    backgroundColor: LIGHT_BLUE,
+    height:'60px',
+    borderRadius:'5px',
+    backgroundColor: LILAC_2,
   },
   accessories: {
     display: 'block',
     width:'82.5px',
-    height:'50px',
-    backgroundColor: PINK,
+    height:'60px',
+    borderRadius:'5px',
+    backgroundColor: LILAC_3,
+  },
+  shoes: {
+    display: 'block',
+    width:'82.5px',
+    height:'60px',
+    borderRadius:'5px',
+    backgroundColor: LILAC_4,
   },
 });
