@@ -1,19 +1,29 @@
 import { StyleSheet, View, TouchableWithoutFeedback, Text } from "react-native";
-import { PURPLE } from "../../utils/constants";
+import { PURPLE, TOP_QUANTITY } from "../../utils/constants";
 
-export default function Arrows() {
+export default function Arrows({ top, setTop }: IArrows) {
+  const handleLeft = () => {
+    if (top > 1) {
+      setTop(top - 1);
+    } else {
+      setTop(TOP_QUANTITY);
+    }
+  };
+  const handleRight = () => {
+    if (top < TOP_QUANTITY) {
+      setTop(top + 1);
+    } else {
+      setTop(1);
+    }
+  };
   return (
     <View style={ArrowsStyle.container}>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("left arrow pressed")}
-      >
+      <TouchableWithoutFeedback onPress={handleLeft}>
         <View style={ArrowsStyle.arrowLeft}>
           <Text>←</Text>
         </View>
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("right arrow pressed")}
-      >
+      <TouchableWithoutFeedback onPress={handleRight}>
         <View style={ArrowsStyle.arrowRight}>
           <Text>→</Text>
         </View>

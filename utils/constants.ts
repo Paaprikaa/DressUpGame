@@ -7,9 +7,9 @@ export const LILAC_3 = "#CD96D9";
 export const LILAC_4 = "#C687D4";
 
 // PATHS
-export enum PATHS {
+export enum BODY {
   CAT = "cat",
   BUNNY = "bunny",
-  BOTTOM = "../../assets/bottom",
-  TOP = "../../assets/top",
 }
+
+export const TOP_QUANTITY = 2;

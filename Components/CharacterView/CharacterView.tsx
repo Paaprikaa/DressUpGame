@@ -13,8 +13,9 @@ import {
   BACKGROUND,
 } from "../../utils/constants";
 
-export default function CharacterView({ body }: ICharacterView) {
+export default function CharacterView({ body, top }: ICharacterView) {
   const bodyPath: string = require(`../../assets/body/${body}/1.png`);
+  const topPath: string = require(`../../assets/top/${top}/1.png`);
   return (
     <View style={CharacterViewStyle.container}>
       <View style={CharacterViewStyle.optionSelector}>
@@ -42,7 +43,7 @@ export default function CharacterView({ body }: ICharacterView) {
             style={CharacterViewStyle.image}
           />
           <Image
-            source={require("../../assets/top/1/3.png")}
+            source={topPath as ImageSourcePropType}
             style={CharacterViewStyle.topImage}
           />
           <Image

@@ -5,15 +5,18 @@ import Animal from "./Components/Animal/Animal";
 import Arrows from "./Components/Arrows/Arrows";
 import CharacterView from "./Components/CharacterView/CharacterView";
 import Palette from "./Components/Palette/Palette";
-import { BACKGROUND, PATHS } from "./utils/constants";
+import { BACKGROUND, BODY } from "./utils/constants";
 
 export default function App() {
-  const [body, setBody] = useState<string>(PATHS.CAT);
+  // This states are used for different sections of the clothing
+  const [body, setBody] = useState<string>(BODY.CAT);
+  const [top, setTop] = useState<number>(1);
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <CharacterView body={body} />
-      <Arrows />
+      <CharacterView body={body} top={top} />
+      <Arrows top={top} setTop={setTop} />
       <Palette />
       <Animal setBody={setBody} />
     </View>
