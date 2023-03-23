@@ -1,16 +1,23 @@
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback,
+  GestureResponderEvent,
+} from "react-native";
 import { PATHS, PURPLE } from "../../utils/constants";
 
-export default function Animal() {
-  // const changeBody = (e) => (path) => {
-  //   setBody(path)
-  // }
+export default function Animal({ setBody }: IAnimal) {
+  const changeBody = (path: string) => (e: GestureResponderEvent) => {
+    e.preventDefault();
+    setBody(path);
+  };
   return (
     <View style={AnimalStyle.container}>
-      <TouchableWithoutFeedback onPress={() => console.log("asd")}>
+      <TouchableWithoutFeedback onPress={changeBody(PATHS.CAT)}>
         <Text>CAT</Text>
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={() => console.log("asd")}>
+      <TouchableWithoutFeedback onPress={changeBody(PATHS.BUNNY)}>
         <Text>BUNNY</Text>
       </TouchableWithoutFeedback>
     </View>

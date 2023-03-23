@@ -8,15 +8,14 @@ import Palette from "./Components/Palette/Palette";
 import { BACKGROUND, PATHS } from "./utils/constants";
 
 export default function App() {
-  // const [body, setBody] = useState(PATHS.CAT);
-
+  const [body, setBody] = useState<string>(PATHS.CAT);
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <CharacterView />
+      <CharacterView body={body} />
       <Arrows />
       <Palette />
-      <Animal />
+      <Animal setBody={setBody} />
     </View>
   );
 }
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 10,
-    width: 100,
     height: "calc(100% - 4rem)",
     marginTop: "2rem",
     marginBottom: "2rem",

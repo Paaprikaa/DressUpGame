@@ -8,8 +8,8 @@ export const LILAC_4 = "#C687D4";
 
 // PATHS
 export enum PATHS {
-  CAT = "../../assets/body/cat",
-  BUNNY = "../../assets/body/bunny",
+  CAT = "cat",
+  BUNNY = "bunny",
   BOTTOM = "../../assets/bottom",
   TOP = "../../assets/top",
 }

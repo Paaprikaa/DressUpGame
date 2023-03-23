@@ -3,6 +3,7 @@ import {
   View,
   TouchableWithoutFeedback,
   Image,
+  ImageSourcePropType,
 } from "react-native";
 import {
   LILAC_2,
@@ -12,7 +13,8 @@ import {
   BACKGROUND,
 } from "../../utils/constants";
 
-export default function CharacterView() {
+export default function CharacterView({ body }: ICharacterView) {
+  const bodyPath: string = require(`../../assets/body/${body}/1.png`);
   return (
     <View style={CharacterViewStyle.container}>
       <View style={CharacterViewStyle.optionSelector}>
@@ -36,7 +38,7 @@ export default function CharacterView() {
       <View style={CharacterViewStyle.main}>
         <View style={CharacterViewStyle.characterDisplay}>
           <Image
-            source={require("../../assets/body/cat/1.png")}
+            source={bodyPath as ImageSourcePropType}
             style={CharacterViewStyle.image}
           />
           <Image
@@ -111,9 +113,13 @@ const CharacterViewStyle = StyleSheet.create({
     backgroundColor: LILAC_4,
   },
   image: {
+    width: 272,
+    height: 430,
     position: "absolute",
   },
   topImage: {
+    width: 272,
+    height: 430,
     position: "absolute",
     zIndex: 1000,
   },
