@@ -3,6 +3,7 @@ import { bodyKey, sectionKey } from "./constants";
 export interface ICharacterView {
   body: bodyKey;
   cloth: Isections;
+  section: sectionKey;
   setSection: React.Dispatch<React.SetStateAction<sectionKey>>;
 }
 

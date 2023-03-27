@@ -1,5 +1,5 @@
 import { StyleSheet, View, TouchableWithoutFeedback, Text } from "react-native";
-import { BOTTOM_QUANTITY, PURPLE, TOP_QUANTITY } from "../../utils/constants";
+import { BOTTOM_QUANTITY, YELLOW, TOP_QUANTITY } from "../../utils/constants";
 import { IArrows } from "../../utils/interfaces";
 import _ from "lodash";
 
@@ -57,17 +57,15 @@ const ArrowsStyle = StyleSheet.create({
     cursor: "pointer",
     width: 20,
     height: 20,
-    backgroundColor: PURPLE,
+    backgroundColor: YELLOW,
     color: "white",
-    borderRadius: 10,
   },
   arrowLeft: {
     display: "flex",
     cursor: "pointer",
     width: 20,
     height: 20,
-    backgroundColor: PURPLE,
+    backgroundColor: YELLOW,
     color: "white",
-    borderRadius: 10,
   },
 });

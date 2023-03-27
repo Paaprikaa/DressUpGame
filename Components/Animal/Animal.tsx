@@ -5,7 +5,7 @@ import {
   TouchableWithoutFeedback,
   GestureResponderEvent,
 } from "react-native";
-import { bodyKey, PURPLE } from "../../utils/constants";
+import { bodyKey, YELLOW } from "../../utils/constants";
 import { IAnimal } from "../../utils/interfaces";
 
 export default function Animal({ setBody }: IAnimal) {
@@ -31,11 +31,12 @@ const AnimalStyle = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: YELLOW,
     gap: 15,
-    backgroundColor: PURPLE,
     width: 230,
     height: 65,
     borderRadius: 10,
     cursor: "pointer",
+    marginBottom: "2rem",
   },
 });

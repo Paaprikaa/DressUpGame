@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import { PURPLE } from "../../utils/constants";
+import { YELLOW } from "../../utils/constants";
 
 export default function Palette() {
   return (
@@ -45,7 +45,7 @@ const PaletteStyle = StyleSheet.create({
   color1: {
     width: 30,
     height: 30,
-    backgroundColor: PURPLE,
+    backgroundColor: YELLOW,
     color: "red",
     borderRadius: 50,
     cursor: "pointer",

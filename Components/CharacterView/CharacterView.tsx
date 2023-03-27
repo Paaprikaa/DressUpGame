@@ -7,27 +7,31 @@ import {
   GestureResponderEvent,
 } from "react-native";
 import {
-  LILAC_2,
-  LILAC_4,
-  LILAC_3,
-  LILAC_1,
-  BACKGROUND,
+  WHITE,
   BODY,
   TOP,
   topKey,
   sectionKey,
   BOTTOM,
+  YELLOW,
 } from "../../utils/constants";
 import { ICharacterView } from "../../utils/interfaces";
 
 export default function CharacterView({
   cloth,
   body,
+  section,
   setSection,
 }: ICharacterView) {
   const bodyPath: string = BODY[body];
   const topPath: string = TOP[cloth.top as topKey];
   const bottomPath: string = BOTTOM[cloth.bottom as topKey];
+  const selected = {
+    top: section === "top",
+    bottom: section === "bottom",
+  };
+  console.log(section);
+  console.log(selected);
 
   const changeSection =
     (sectionSelected: sectionKey) => (e: GestureResponderEvent) => {
@@ -36,36 +40,36 @@ export default function CharacterView({
     };
 
   return (
-    <View style={CharacterViewStyle.container}>
-      <View style={CharacterViewStyle.optionSelector}>
+    <View style={CharacterViewStyle(selected).container}>
+      <View style={CharacterViewStyle(selected).optionSelector}>
         <TouchableWithoutFeedback onPress={changeSection("top")}>
-          <View style={CharacterViewStyle.top}></View>
+          <View style={CharacterViewStyle(selected).top}></View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={changeSection("bottom")}>
-          <View style={CharacterViewStyle.bottom}></View>
+          <View style={CharacterViewStyle(selected).bottom}></View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => console.log("shoes selected")}>
-          <View style={CharacterViewStyle.shoes}></View>
+          <View style={CharacterViewStyle(selected).shoes}></View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
           onPress={() => console.log("accessories selected")}
         >
-          <View style={CharacterViewStyle.accessories}></View>
+          <View style={CharacterViewStyle(selected).accessories}></View>
         </TouchableWithoutFeedback>
       </View>
-      <View style={CharacterViewStyle.main}>
-        <View style={CharacterViewStyle.characterDisplay}>
+      <View style={CharacterViewStyle(selected).main}>
+        <View style={CharacterViewStyle(selected).characterDisplay}>
           <Image
             source={bodyPath as ImageSourcePropType}
-            style={CharacterViewStyle.image}
+            style={CharacterViewStyle(selected).image}
           />
           <Image
             source={topPath as ImageSourcePropType}
-            style={CharacterViewStyle.topImage}
+            style={CharacterViewStyle(selected).topImage}
           />
           <Image
             source={bottomPath as ImageSourcePropType}
-            style={CharacterViewStyle.image}
+            style={CharacterViewStyle(selected).image}
           />
         </View>
       </View>
@@ -73,72 +77,74 @@ export default function CharacterView({
   );
 }
 
-const CharacterViewStyle = StyleSheet.create({
-  container: {
-    display: "flex",
-  },
-  characterDisplay: {
-    display: "flex",
-    position: "relative",
-    backgroundColor: BACKGROUND,
-    width: 272,
-    height: 430,
-    borderRadius: 10,
-  },
-  main: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: LILAC_1,
-    width: 330,
-    height: 480,
-    borderRadius: 10,
-  },
-  optionSelector: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 0,
-    width: 330,
-    height: 60,
-    marginBottom: -10,
-  },
-  top: {
-    display: "flex",
-    width: 82,
-    height: 60,
-    borderRadius: 5,
-    backgroundColor: LILAC_1,
-  },
-  bottom: {
-    display: "flex",
-    width: 82,
-    height: 60,
-    borderRadius: 5,
-    backgroundColor: LILAC_2,
-  },
-  shoes: {
-    display: "flex",
-    width: 82,
-    height: 60,
-    borderRadius: 5,
-    backgroundColor: LILAC_3,
-  },
-  accessories: {
-    display: "flex",
-    width: 82,
-    height: 60,
-    borderRadius: 5,
-    backgroundColor: LILAC_4,
-  },
-  image: {
-    width: 272,
-    height: 430,
-    position: "absolute",
-  },
-  topImage: {
-    width: 272,
-    height: 430,
-    position: "absolute",
-    zIndex: 1000,
-  },
-});
+const CharacterViewStyle = (selected: any) =>
+  StyleSheet.create({
+    container: {
+      display: "flex",
+      marginTop: "2rem",
+    },
+    characterDisplay: {
+      display: "flex",
+      position: "relative",
+      backgroundColor: WHITE,
+      width: 272,
+      height: 430,
+      borderRadius: 10,
+    },
+    main: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: YELLOW,
+      width: 330,
+      height: 480,
+      borderRadius: 10,
+    },
+    optionSelector: {
+      display: "flex",
+      flexDirection: "row",
+      gap: 0,
+      width: 330,
+      height: 60,
+      marginBottom: -10,
+    },
+    top: {
+      display: "flex",
+      width: 82,
+      height: 60,
+      borderRadius: 5,
+      backgroundColor: selected.top ? YELLOW : WHITE,
+    },
+    bottom: {
+      display: "flex",
+      width: 82,
+      height: 60,
+      borderRadius: 5,
+      backgroundColor: selected.bottom ? YELLOW : WHITE,
+    },
+    shoes: {
+      display: "flex",
+      width: 82,
+      height: 60,
+      borderRadius: 5,
+      backgroundColor: WHITE,
+    },
+    accessories: {
+      display: "flex",
+      width: 82,
+      height: 60,
+      borderRadius: 5,
+      backgroundColor: WHITE,
+    },
+    image: {
+      width: 272,
+      height: 430,
+      position: "absolute",
+    },
+    topImage: {
+      width: 272,
+      height: 430,
+      position: "absolute",
+      zIndex: 1000,
+    },
+  });
