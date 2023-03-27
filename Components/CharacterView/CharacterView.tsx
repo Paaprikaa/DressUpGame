@@ -4,6 +4,7 @@ import {
   TouchableWithoutFeedback,
   Image,
   ImageSourcePropType,
+  GestureResponderEvent,
 } from "react-native";
 import {
   LILAC_2,
@@ -11,20 +12,36 @@ import {
   LILAC_3,
   LILAC_1,
   BACKGROUND,
+  BODY,
+  TOP,
+  topKey,
+  sectionKey,
+  BOTTOM,
 } from "../../utils/constants";
+import { ICharacterView } from "../../utils/interfaces";
 
-export default function CharacterView({ body, top }: ICharacterView) {
-  const bodyPath: string = require(`../../assets/body/${body}/1.png`);
-  const topPath: string = require(`../../assets/top/${top}/1.png`);
+export default function CharacterView({
+  cloth,
+  body,
+  setSection,
+}: ICharacterView) {
+  const bodyPath: string = BODY[body];
+  const topPath: string = TOP[cloth.top as topKey];
+  const bottomPath: string = BOTTOM[cloth.bottom as topKey];
+
+  const changeSection =
+    (sectionSelected: sectionKey) => (e: GestureResponderEvent) => {
+      e.preventDefault();
+      setSection(sectionSelected);
+    };
+
   return (
     <View style={CharacterViewStyle.container}>
       <View style={CharacterViewStyle.optionSelector}>
-        <TouchableWithoutFeedback onPress={() => console.log("top selected")}>
+        <TouchableWithoutFeedback onPress={changeSection("top")}>
           <View style={CharacterViewStyle.top}></View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback
-          onPress={() => console.log("bottom selected")}
-        >
+        <TouchableWithoutFeedback onPress={changeSection("bottom")}>
           <View style={CharacterViewStyle.bottom}></View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => console.log("shoes selected")}>
@@ -47,7 +64,7 @@ export default function CharacterView({ body, top }: ICharacterView) {
             style={CharacterViewStyle.topImage}
           />
           <Image
-            source={require("../../assets/bottom/2/1.png")}
+            source={bottomPath as ImageSourcePropType}
             style={CharacterViewStyle.image}
           />
         </View>

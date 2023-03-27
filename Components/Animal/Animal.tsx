@@ -5,19 +5,20 @@ import {
   TouchableWithoutFeedback,
   GestureResponderEvent,
 } from "react-native";
-import { BODY, PURPLE } from "../../utils/constants";
+import { bodyKey, PURPLE } from "../../utils/constants";
+import { IAnimal } from "../../utils/interfaces";
 
 export default function Animal({ setBody }: IAnimal) {
-  const changeBody = (path: string) => (e: GestureResponderEvent) => {
+  const changeBody = (path: bodyKey) => (e: GestureResponderEvent) => {
     e.preventDefault();
     setBody(path);
   };
   return (
     <View style={AnimalStyle.container}>
-      <TouchableWithoutFeedback onPress={changeBody(BODY.CAT)}>
+      <TouchableWithoutFeedback onPress={changeBody("cat")}>
         <Text>CAT</Text>
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={changeBody(BODY.BUNNY)}>
+      <TouchableWithoutFeedback onPress={changeBody("bunny")}>
         <Text>BUNNY</Text>
       </TouchableWithoutFeedback>
     </View>

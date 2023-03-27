@@ -1,21 +1,30 @@
 import { StyleSheet, View, TouchableWithoutFeedback, Text } from "react-native";
-import { PURPLE, TOP_QUANTITY } from "../../utils/constants";
+import { BOTTOM_QUANTITY, PURPLE, TOP_QUANTITY } from "../../utils/constants";
+import { IArrows } from "../../utils/interfaces";
+import _ from "lodash";
 
-export default function Arrows({ top, setTop }: IArrows) {
+export default function Arrows({ section, cloth, setCloth }: IArrows) {
+  const maxQuantity = section === "top" ? TOP_QUANTITY : BOTTOM_QUANTITY;
   const handleLeft = () => {
-    if (top > 1) {
-      setTop(top - 1);
+    const copy = _.cloneDeep(cloth);
+    if (cloth[section] > 1) {
+      copy[section] = copy[section] - 1;
     } else {
-      setTop(TOP_QUANTITY);
+      copy[section] = maxQuantity;
     }
+    setCloth(copy);
   };
+
   const handleRight = () => {
-    if (top < TOP_QUANTITY) {
-      setTop(top + 1);
+    const copy = _.cloneDeep(cloth);
+    if (cloth[section] < maxQuantity) {
+      copy[section] = copy[section] + 1;
     } else {
-      setTop(1);
+      copy[section] = 1;
     }
+    setCloth(copy);
   };
+
   return (
     <View style={ArrowsStyle.container}>
       <TouchableWithoutFeedback onPress={handleLeft}>

@@ -1,13 +1,22 @@
-interface ICharacterView {
-  body: string;
-  top: number;
+import { bodyKey, sectionKey } from "./constants";
+
+export interface ICharacterView {
+  body: bodyKey;
+  cloth: Isections;
+  setSection: React.Dispatch<React.SetStateAction<sectionKey>>;
 }
 
-interface IArrows {
-  top: number;
-  setTop: React.Dispatch<React.SetStateAction<number>>;
+export interface IArrows {
+  section: sectionKey;
+  cloth: Isections;
+  setCloth: React.Dispatch<React.SetStateAction<Isections>>;
 }
 
-interface IAnimal {
-  setBody: React.Dispatch<React.SetStateAction<string>>;
+export interface IAnimal {
+  setBody: React.Dispatch<React.SetStateAction<bodyKey>>;
+}
+
+export interface Isections {
+  top: number;
+  bottom: number;
 }
