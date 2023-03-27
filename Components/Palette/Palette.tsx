@@ -1,32 +1,36 @@
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import { YELLOW } from "../../utils/constants";
+import _ from "lodash";
+import {
+  GestureResponderEvent,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
+import { bottomKey, sectionKey, topKey, YELLOW } from "../../utils/constants";
+import { IPalette } from "../../utils/interfaces";
 
-export default function Palette() {
+export default function Palette({ setCloth, cloth, section }: IPalette) {
+  const changePalette =
+    (palette: 1 | 2 | 3 | 4 | 5) => (e: GestureResponderEvent) => {
+      const copy = _.cloneDeep(cloth);
+      copy[section].color = palette;
+      setCloth(copy);
+    };
+
   return (
     <View style={PaletteStyle.container}>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("palette 1 pressed")}
-      >
+      <TouchableWithoutFeedback onPress={changePalette(1)}>
         <View style={PaletteStyle.color1} />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("palette 2 pressed")}
-      >
+      <TouchableWithoutFeedback onPress={changePalette(2)}>
         <View style={PaletteStyle.color1} />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("palette 3 pressed")}
-      >
+      <TouchableWithoutFeedback onPress={changePalette(3)}>
         <View style={PaletteStyle.color1} />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("palette 4 pressed")}
-      >
+      <TouchableWithoutFeedback onPress={changePalette(4)}>
         <View style={PaletteStyle.color1} />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => console.log("palette 5 pressed")}
-      >
+      <TouchableWithoutFeedback onPress={changePalette(5)}>
         <View style={PaletteStyle.color1} />
       </TouchableWithoutFeedback>
     </View>

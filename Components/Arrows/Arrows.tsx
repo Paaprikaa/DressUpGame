@@ -5,23 +5,16 @@ import _ from "lodash";
 
 export default function Arrows({ section, cloth, setCloth }: IArrows) {
   const maxQuantity = section === "top" ? TOP_QUANTITY : BOTTOM_QUANTITY;
+
   const handleLeft = () => {
     const copy = _.cloneDeep(cloth);
-    if (cloth[section] > 1) {
-      copy[section] = copy[section] - 1;
-    } else {
-      copy[section] = maxQuantity;
-    }
+    copy[section].number = (copy[section].number-- % maxQuantity) + 1;
     setCloth(copy);
   };
 
   const handleRight = () => {
     const copy = _.cloneDeep(cloth);
-    if (cloth[section] < maxQuantity) {
-      copy[section] = copy[section] + 1;
-    } else {
-      copy[section] = 1;
-    }
+    copy[section].number = (copy[section].number++ % maxQuantity) + 1;
     setCloth(copy);
   };
 

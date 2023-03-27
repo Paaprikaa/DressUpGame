@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Animal from "./Components/Animal/Animal";
 import Arrows from "./Components/Arrows/Arrows";
 import CharacterView from "./Components/CharacterView/CharacterView";
@@ -10,7 +10,10 @@ import { WHITE, bodyKey, sectionKey } from "./utils/constants";
 export default function App() {
   // This states are used for different sections of the clothing
   const [body, setBody] = useState<bodyKey>("cat");
-  const [cloth, setCloth] = useState({ top: 1, bottom: 1 });
+  const [cloth, setCloth] = useState({
+    top: { number: 1, color: 1 },
+    bottom: { number: 1, color: 1 },
+  });
   const [section, setSection] = useState<sectionKey>("top");
 
   return (
@@ -23,7 +26,7 @@ export default function App() {
         cloth={cloth}
       />
       <Arrows section={section} cloth={cloth} setCloth={setCloth} />
-      <Palette />
+      <Palette setCloth={setCloth} cloth={cloth} section={section} />
       <Animal setBody={setBody} />
     </View>
   );

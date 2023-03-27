@@ -17,7 +17,19 @@ export interface IAnimal {
   setBody: React.Dispatch<React.SetStateAction<bodyKey>>;
 }
 
+export interface IPalette {
+  section: sectionKey;
+  cloth: Isections;
+  setCloth: React.Dispatch<React.SetStateAction<Isections>>;
+}
+
 export interface Isections {
-  top: number;
-  bottom: number;
+  top: {
+    number: number;
+    color: number;
+  };
+  bottom: {
+    number: number;
+    color: number;
+  };
 }

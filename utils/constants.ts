@@ -15,15 +15,39 @@ export const BODY = {
 export type bodyKey = keyof typeof BODY;
 
 export const TOP = {
-  1: require("../assets/top/1/1.png"),
-  2: require("../assets/top/2/1.png"),
+  1: {
+    1: require("../assets/top/1/1.png"),
+    2: require("../assets/top/1/2.png"),
+    3: require("../assets/top/1/3.png"),
+    4: require("../assets/top/1/4.png"),
+    5: require("../assets/top/1/5.png"),
+  },
+  2: {
+    1: require("../assets/top/2/1.png"),
+    2: require("../assets/top/2/2.png"),
+    3: require("../assets/top/2/3.png"),
+    4: require("../assets/top/2/4.png"),
+    5: require("../assets/top/2/5.png"),
+  },
 };
 
 export type topKey = keyof typeof TOP;
 
 export const BOTTOM = {
-  1: require("../assets/bottom/1/4.png"),
-  2: require("../assets/bottom/2/1.png"),
+  1: {
+    1: require("../assets/bottom/1/1.png"),
+    2: require("../assets/bottom/1/2.png"),
+    3: require("../assets/bottom/1/3.png"),
+    4: require("../assets/bottom/1/4.png"),
+    5: require("../assets/bottom/1/5.png"),
+  },
+  2: {
+    1: require("../assets/bottom/2/1.png"),
+    2: require("../assets/bottom/2/2.png"),
+    3: require("../assets/bottom/2/3.png"),
+    4: require("../assets/bottom/2/4.png"),
+    5: require("../assets/bottom/2/5.png"),
+  },
 };
 
 export type bottomKey = keyof typeof BOTTOM;

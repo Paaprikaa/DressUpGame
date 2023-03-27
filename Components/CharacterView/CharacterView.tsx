@@ -14,6 +14,7 @@ import {
   sectionKey,
   BOTTOM,
   YELLOW,
+  bottomKey,
 } from "../../utils/constants";
 import { ICharacterView } from "../../utils/interfaces";
 
@@ -24,14 +25,14 @@ export default function CharacterView({
   setSection,
 }: ICharacterView) {
   const bodyPath: string = BODY[body];
-  const topPath: string = TOP[cloth.top as topKey];
-  const bottomPath: string = BOTTOM[cloth.bottom as topKey];
+  const topPath: string =
+    TOP[cloth.top.number as topKey][cloth.top.color as topKey];
+  const bottomPath: string =
+    BOTTOM[cloth.bottom.number as bottomKey][cloth.bottom.color as bottomKey];
   const selected = {
     top: section === "top",
     bottom: section === "bottom",
   };
-  console.log(section);
-  console.log(selected);
 
   const changeSection =
     (sectionSelected: sectionKey) => (e: GestureResponderEvent) => {
