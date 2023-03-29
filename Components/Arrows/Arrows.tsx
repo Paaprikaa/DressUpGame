@@ -1,10 +1,20 @@
 import { StyleSheet, View, TouchableWithoutFeedback, Text } from "react-native";
-import { BOTTOM_QUANTITY, YELLOW, TOP_QUANTITY } from "../../utils/constants";
+import {
+  BOTTOM_QUANTITY,
+  YELLOW,
+  TOP_QUANTITY,
+  ACCESSORY_QUANTITY,
+} from "../../utils/constants";
 import { IArrows } from "../../utils/interfaces";
 import _ from "lodash";
 
 export default function Arrows({ section, cloth, setCloth }: IArrows) {
-  const maxQuantity = section === "top" ? TOP_QUANTITY : BOTTOM_QUANTITY;
+  const maxQuantity =
+    section === "top"
+      ? TOP_QUANTITY
+      : section === "bottom"
+      ? BOTTOM_QUANTITY
+      : ACCESSORY_QUANTITY;
 
   const handleLeft = () => {
     const copy = _.cloneDeep(cloth);

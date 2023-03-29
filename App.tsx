@@ -13,6 +13,7 @@ export default function App() {
   const [cloth, setCloth] = useState({
     top: { number: 1, color: 1 },
     bottom: { number: 1, color: 1 },
+    accessory: { number: 1, color: 1 },
   });
   const [section, setSection] = useState<sectionKey>("top");
 

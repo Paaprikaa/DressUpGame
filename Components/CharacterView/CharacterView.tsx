@@ -15,6 +15,8 @@ import {
   BOTTOM,
   YELLOW,
   bottomKey,
+  ACCESSORY,
+  accessoryKey,
 } from "../../utils/constants";
 import { ICharacterView } from "../../utils/interfaces";
 
@@ -24,14 +26,21 @@ export default function CharacterView({
   section,
   setSection,
 }: ICharacterView) {
+  // Paths to images
   const bodyPath: string = BODY[body];
   const topPath: string =
     TOP[cloth.top.number as topKey][cloth.top.color as topKey];
   const bottomPath: string =
     BOTTOM[cloth.bottom.number as bottomKey][cloth.bottom.color as bottomKey];
+  const accessoryPath: string =
+    ACCESSORY[cloth.accessory.number as accessoryKey][
+      cloth.accessory.color as accessoryKey
+    ];
+
   const selected = {
     top: section === "top",
     bottom: section === "bottom",
+    accessory: section === "accessory",
   };
 
   const changeSection =
@@ -52,9 +61,7 @@ export default function CharacterView({
         <TouchableWithoutFeedback onPress={() => console.log("shoes selected")}>
           <View style={CharacterViewStyle(selected).shoes}></View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback
-          onPress={() => console.log("accessories selected")}
-        >
+        <TouchableWithoutFeedback onPress={changeSection("accessory")}>
           <View style={CharacterViewStyle(selected).accessories}></View>
         </TouchableWithoutFeedback>
       </View>
@@ -63,6 +70,10 @@ export default function CharacterView({
           <Image
             source={bodyPath as ImageSourcePropType}
             style={CharacterViewStyle(selected).image}
+          />
+          <Image
+            source={accessoryPath as ImageSourcePropType}
+            style={CharacterViewStyle(selected).accessoryImage}
           />
           <Image
             source={topPath as ImageSourcePropType}
@@ -135,7 +146,7 @@ const CharacterViewStyle = (selected: any) =>
       width: 82,
       height: 60,
       borderRadius: 5,
-      backgroundColor: WHITE,
+      backgroundColor: selected.accessory ? YELLOW : WHITE,
     },
     image: {
       width: 272,
@@ -143,6 +154,12 @@ const CharacterViewStyle = (selected: any) =>
       position: "absolute",
     },
     topImage: {
+      width: 272,
+      height: 430,
+      position: "absolute",
+      zIndex: 900,
+    },
+    accessoryImage: {
       width: 272,
       height: 430,
       position: "absolute",

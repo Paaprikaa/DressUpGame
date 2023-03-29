@@ -32,4 +32,8 @@ export interface Isections {
     number: number;
     color: number;
   };
+  accessory: {
+    number: number;
+    color: number;
+  };
 }

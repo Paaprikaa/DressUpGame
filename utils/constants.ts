@@ -29,6 +29,20 @@ export const TOP = {
     4: require("../assets/top/2/4.png"),
     5: require("../assets/top/2/5.png"),
   },
+  3: {
+    1: require("../assets/top/3/1.png"),
+    2: require("../assets/top/3/2.png"),
+    3: require("../assets/top/3/3.png"),
+    4: require("../assets/top/3/4.png"),
+    5: require("../assets/top/3/5.png"),
+  },
+  4: {
+    1: require("../assets/top/4/1.png"),
+    2: require("../assets/top/4/2.png"),
+    3: require("../assets/top/4/3.png"),
+    4: require("../assets/top/4/4.png"),
+    5: require("../assets/top/4/5.png"),
+  },
 };
 
 export type topKey = keyof typeof TOP;
@@ -52,12 +66,47 @@ export const BOTTOM = {
 
 export type bottomKey = keyof typeof BOTTOM;
 
+export const ACCESSORY = {
+  1: {
+    1: require("../assets/accessory/1/1.png"),
+    2: require("../assets/accessory/1/2.png"),
+    3: require("../assets/accessory/1/3.png"),
+    4: require("../assets/accessory/1/4.png"),
+    5: require("../assets/accessory/1/5.png"),
+  },
+  2: {
+    1: require("../assets/accessory/2/1.png"),
+    2: require("../assets/accessory/2/2.png"),
+    3: require("../assets/accessory/2/3.png"),
+    4: require("../assets/accessory/2/4.png"),
+    5: require("../assets/accessory/2/5.png"),
+  },
+  3: {
+    1: require("../assets/accessory/3/1.png"),
+    2: require("../assets/accessory/3/2.png"),
+    3: require("../assets/accessory/3/3.png"),
+    4: require("../assets/accessory/3/4.png"),
+    5: require("../assets/accessory/3/5.png"),
+  },
+  4: {
+    1: require("../assets/accessory/4/1.png"),
+    2: require("../assets/accessory/4/2.png"),
+    3: require("../assets/accessory/4/3.png"),
+    4: require("../assets/accessory/4/4.png"),
+    5: require("../assets/accessory/4/5.png"),
+  },
+};
+
+export type accessoryKey = keyof typeof ACCESSORY;
+
 export const SECTION = {
   top: "top",
   bottom: "bottom",
+  accessory: "accessory",
 };
 
 export type sectionKey = keyof typeof SECTION;
 
-export const TOP_QUANTITY = 2;
+export const TOP_QUANTITY = 4;
 export const BOTTOM_QUANTITY = 2;
+export const ACCESSORY_QUANTITY = 4;
