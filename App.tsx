@@ -5,7 +5,7 @@ import Animal from "./Components/Animal/Animal";
 import Arrows from "./Components/Arrows/Arrows";
 import CharacterView from "./Components/CharacterView/CharacterView";
 import Palette from "./Components/Palette/Palette";
-import { WHITE, bodyKey, sectionKey } from "./utils/constants";
+import { LILAC_1, WHITE, bodyKey, sectionKey } from "./utils/constants";
 
 export default function App() {
   // This states are used for different sections of the clothing
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: WHITE,
+    backgroundColor: LILAC_1,
     alignItems: "center",
     justifyContent: "center",
     gap: 10,

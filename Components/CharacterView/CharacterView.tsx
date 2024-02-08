@@ -1,22 +1,22 @@
 import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
+  GestureResponderEvent,
   Image,
   ImageSourcePropType,
-  GestureResponderEvent,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import {
-  WHITE,
-  BODY,
-  TOP,
-  topKey,
-  sectionKey,
-  BOTTOM,
-  YELLOW,
-  bottomKey,
   ACCESSORY,
+  BODY,
+  BOTTOM,
+  TOP,
+  WHITE,
+  YELLOW,
   accessoryKey,
+  bottomKey,
+  sectionKey,
+  topKey,
 } from "../../utils/constants";
 import { ICharacterView } from "../../utils/interfaces";
 

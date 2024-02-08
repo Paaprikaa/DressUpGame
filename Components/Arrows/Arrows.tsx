@@ -1,12 +1,12 @@
-import { StyleSheet, View, TouchableWithoutFeedback, Text } from "react-native";
+import _ from "lodash";
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import {
-  BOTTOM_QUANTITY,
-  YELLOW,
-  TOP_QUANTITY,
   ACCESSORY_QUANTITY,
+  BOTTOM_QUANTITY,
+  TOP_QUANTITY,
+  YELLOW,
 } from "../../utils/constants";
 import { IArrows } from "../../utils/interfaces";
-import _ from "lodash";
 
 export default function Arrows({ section, cloth, setCloth }: IArrows) {
   const maxQuantity =

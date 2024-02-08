@@ -5,7 +5,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { bottomKey, sectionKey, topKey, YELLOW } from "../../utils/constants";
+import { YELLOW } from "../../utils/constants";
 import { IPalette } from "../../utils/interfaces";
 
 export default function Palette({ setCloth, cloth, section }: IPalette) {

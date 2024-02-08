@@ -1,11 +1,11 @@
 import {
+  GestureResponderEvent,
   StyleSheet,
   Text,
-  View,
   TouchableWithoutFeedback,
-  GestureResponderEvent,
+  View,
 } from "react-native";
-import { bodyKey, YELLOW } from "../../utils/constants";
+import { YELLOW, bodyKey } from "../../utils/constants";
 import { IAnimal } from "../../utils/interfaces";
 
 export default function Animal({ setBody }: IAnimal) {
